@@ -11,7 +11,7 @@
 <h3>졸업작품소개</h3>
 
 + 작품명: <날좀봐><br/>
-졸업작품소개 사이트: url<br/>
+졸업작품소개 사이트: https://almond-daelim.github.io/NALJOMBWA/<br/>
 
 + 개발환경: Window, Vscode, React, Git, HTML5, Tailwind<br/>
 + 작품소개: 전국 각 지역의 4일 이내 기상상태를 파악해 날씨가<br/>
