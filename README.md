@@ -19,6 +19,27 @@
 + 작품의특징: 오픈웨더 api 와 관광지 api 를 접목하여 인사이트를 도출한다 <br/><br/>
 
 <h3>개발일지</h3>
+(09월 21일) <br/>
+
++ header 완성
+  - 다음주 목표: card List 완성, 관광 api 연결후 테스트
++ 1차 회의 진행
++ 디자인 추가 및 재수정
+
+  - 메인페이지 스크린 1440px 이상  
+  - 상세페이지 
+  - 메인페이지 스크린 744px 이하
+  - 메인페이지 스크린 1134px 이하
+  - 메인페이지 스크린 1440px 이하
+
+
+
+<img width="300" src="https://user-images.githubusercontent.com/70833455/191995468-67b5912c-c50c-4d8e-b9c3-1278259f2db9.png"><img width="300" src="https://user-images.githubusercontent.com/70833455/191995946-615e1d57-655e-48c6-85d5-aacd3dd49916.png"><img width="100" src="https://user-images.githubusercontent.com/70833455/191999452-2cab66b3-e1a7-4d11-a8c5-2c9a37c663d3.png">
+
+<img width="300"  src="https://user-images.githubusercontent.com/70833455/191996516-536728eb-4c85-4861-8ce5-d2cf1c6e5c28.png"><img width="300" src="https://user-images.githubusercontent.com/70833455/191996312-e253c827-ae0f-4179-8055-15db911bc04d.png"> 
+
+
+
 (09월 14일) <br/>
 
 + 프로젝트 초기 세팅 완료
