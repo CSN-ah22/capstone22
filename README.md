@@ -19,6 +19,15 @@
 + 작품의특징: 오픈웨더 api 와 관광지 api 를 접목하여 인사이트를 도출한다 <br/><br/>
 
 <h3>개발일지</h3>
+(10월 01일) <br/>
+3주차 진행 목록
+
++ 카드 리스트 완성
++ 한국 관광공사 api 연결 후 테스트 완료
++ Header_v2 작성 (마크업 수정 진행)
+
+<img width="500px" src ="https://user-images.githubusercontent.com/70833455/193404494-302662b3-c03d-428a-aa96-3554f424767f.png"/>
+
 (09월 21일) <br/>
 
 + header 완성
