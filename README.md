@@ -24,9 +24,11 @@
 
 + 카드 리스트 완성
 + 한국 관광공사 api 연결 후 테스트 완료
-+ Header_v2 작성 (마크업 수정 진행)
++ Header_v2 작성 완료 (마크업 수정)
 
 <img width="500px" src ="https://user-images.githubusercontent.com/70833455/193404494-302662b3-c03d-428a-aa96-3554f424767f.png"/>
+
++ 다음주 목표: 검색 기능 완성
 
 (09월 21일) <br/>
 
