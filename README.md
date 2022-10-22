@@ -28,6 +28,9 @@
 + api 자원은 환경설정에, 호출은 api 파일에서 이루어 지도록 하고 axios를 사용하여 코드 리팩토링 작업을 해야함
 <img width="500px" src="https://user-images.githubusercontent.com/70833455/197346842-c29cab7f-6495-4df0-a88f-452460d6c0d1.png" />
 
+다음주 목표
++ api 구조 정리, 중복 코드해결을 위한 모듈 생성, 상세페이지 제작
+
 (10월 12일)<br/>
 7주차
 
