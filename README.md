@@ -25,6 +25,7 @@
 + 검색기능 문제 해결 완료
 + MainPage와 SearchPage의 렌더링 구조가 중복되므로 모듈을 만들어서 중복을 없애는 작업을 수행할것
 <img width="500px" src="https://user-images.githubusercontent.com/70833455/197346985-10e5e440-f2ca-4663-8121-a82dcfbbb1a5.png" />
+
 + api 자원은 환경설정에, 호출은 api 파일에서 이루어 지도록 하고 axios를 사용하여 코드 리팩토링 작업을 해야함
 <img width="500px" src="https://user-images.githubusercontent.com/70833455/197346842-c29cab7f-6495-4df0-a88f-452460d6c0d1.png" />
 
