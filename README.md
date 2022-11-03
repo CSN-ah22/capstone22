@@ -20,6 +20,33 @@
 
 <h3>개발일지</h3>
 
+(11월 02일)<br/>
+10주차
++ 완성했다고 생각했던 api 호출 코드 에서 치명적인 문제점을 발견했다.
+  - api가 무한 반복 호출되고 있었다!  
+  - 이 상황을 알지 못했던건 로컬화면에서 고작 20개의 데이터가 보여지도록 만들었기 때문에 알지 못했었다.
+  - log를 찍어보니 그제서야 엄청난 반복이 되고 있다는걸 알았다
++ log를 찍은 위치는 다음과 같다
+  - api/Tour.js 
+  - page/TourListPage 
+  - component/common/layout/TourCard.js
+
+아마 찍지 않았다면 평생 몰랐을거다.<br/>
+트래픽이 커서 개발하는동안 별 문제 없었기 때문이다.<br/>
+그래서 <b>1차적으로 배운건 무언가를 모듈화 했을땐 무조건 log를 한번씩 찍어보자는거다.</b><br/>
+<br/>
+사실 나는 Tour.js에서 이미 무한호출이 처리된줄 알았다. <br/>
+그도그럴게 useEffect 안에 api의 호출문과 관련된 자원들을 모두 때려박기 싫어서 호출문을 컴포넌트로 따로 분리하였다,<br/>
+그랬더니 npm ci 오류가 나면서 test 코드에서 막혔었다. <br/>
+
++ 그때의 오류는 세가지였다.
+  - ⛔호출문을 담은 컴포넌트를 useEffect 아래에 두어서 생성되기전 호출되었다는 오류
+  <br/>➡( 원래 상관없는걸로 아는데, useEffect를 맨 아래에 두는것도 맘에 걸렸지만 뭐 어쩌겠어 결국 순서 바꿨다. )
+  - ⛔React Hook useEffect has missing dependencies: 'callGetData' and 'url'. Either include them or remove the dependency array.
+  <br/>➡( useEffect의 빈배열을 채우란 경고, ****[Destructuring 상태 할당 eslint를 사용해야 합니다](https://dirask.com/questions/p2q04D)**** )
+  - ⛔TourCard.js 에서의 props를 구조 할당 하라는것
+
+
 (10월 26일)<br/>
 9주차
 + api 구조 정리 완료 
