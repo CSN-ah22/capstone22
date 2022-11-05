@@ -68,8 +68,12 @@ useEffect(() => {
 정확히는 [callGetData, url] 이렇게 들어갔는데 callGetData에 경고가 뜨면서 무한호출은 해결되지 않았다.<br/>
 
 </br>
+
+```
 The 'callGetData' function makes the dependencies of useEffect Hook (at line 49) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'callGetData' in its own useCallback() Hook.
+```
 </br>
+
 문구의 뜻은 callGetData가 useEffect의 렌더링을 전부 바꾸고 있으니 차라리 useEffect안에 넣어라 또는 useCallback으로 매핑하면 어떠니 라는 의미였다.</br>
 그때 구글링을 통해 좀 더 찾아보니 정말로 useCallback과 useEffect의 조합을 찾아볼 수 있었다.</br>
 
