@@ -46,6 +46,124 @@
   <br/>➡( useEffect의 빈배열을 채우란 경고, ****[Destructuring 상태 할당 eslint를 사용해야 합니다](https://dirask.com/questions/p2q04D)**** )
   - ⛔TourCard.js 에서의 props를 구조 할당 하라는것
 
+<br/>
+먼저 useEffect의 빈 배열 문제의 경우 사용하려는 의도는 렌더링후 단 1번만 호출을 원해서 그렇게 만든것이었다. <br/>
+그런데 빈배열을 채워야 하는 경고라면 호출컴포넌트의 이름을 빈배열안에 써줘야했다. <br/>
+혹은 마우스커서를 대고 있으면 update…어쩌구 하면서 대신 채워줄것이다.<br/>
+
+```jsx
+useEffect(() => {
+	//어쩌구작업..첫번째인자가 된다
+}, [value]);
+
+//첫번째 인자로는 callback 함수, 두번째 인자로는 배열을 받는다!
+//화면에 첫 렌더링 될 때, value 값이 바뀔 때만 작업이 수행된다
+//만약 배열이 비어있다면, 화면에 첫 렌더링 될 때 한번만 수행
+```
+<br/>
+하지만 그렇게 채워두었더니 계속해서 새로운 데이터를 받아오고 계속해서 상태가 업데이트 되고<br/>
+
+계속해서 log를 찍어대는 아수라장..이 되었다.<br/>
+
+정확히는 [callGetData, url] 이렇게 들어갔는데 callGetData에 경고가 뜨면서 무한호출은 해결되지 않았다.<br/>
+
+</br>
+The 'callGetData' function makes the dependencies of useEffect Hook (at line 49) change on every render. Move it inside the useEffect callback. Alternatively, wrap the definition of 'callGetData' in its own useCallback() Hook.
+</br>
+문구의 뜻은 callGetData가 useEffect의 렌더링을 전부 바꾸고 있으니 차라리 useEffect안에 넣어라 또는 useCallback으로 매핑하면 어떠니 라는 의미였다.</br>
+그때 구글링을 통해 좀 더 찾아보니 정말로 useCallback과 useEffect의 조합을 찾아볼 수 있었다.</br>
+
+이로써 useEffect의 빈배열도 채우고, api호출도 따로 분리할 수 있고, 단 한번만 호출되겠지 갸꿀이네 하는 생각으로 열심히 해봤지만 와장창 실패했다.</br>
+
+왜냐하면 useCallback도 빈배열을 사용했고 그것을 비워두면 eslint 경고가 날라온다.</br>
+
+아무튼 안되니까</br>
+
+안돼도 되게 하라 같은 영웅 말로 포장해서 찾고 찾았다.</br>
+
+내 생각이 틀리지 않았다는 것처럼 누군가의 정답코드를 발견했다!  [링크](https://merrily-code.tistory.com/117)</br>
+
+```jsx
+const getGroupList = async () => {
+  await axios
+    .get(`${GROUP_ENDPOINT}?func=getAllGroup`)
+    .then((res) => setGroupList(res.data));
+};
+
+useEffect(() => {
+  getGroupList();
+}, []);
+```
+
+이걸 이용해서 api 호출 ….거의 다왔지만 문제가 있다!</br>
+
+바로 useEffect의 배열 부분이 여전히 문제다</br>
+
+```jsx
+  //api fetch
+  const callGetData = async url => {
+    try {
+      console.log('callbakc');
+      const response = await axios.get(url);
+      setTourData(response.data.response.body.items.item);
+    } catch (err) {
+      console.log('Tour Api 불러오기 실패');
+      console.log(err);
+    }
+  };
+
+  //getData call
+  useEffect(() => {
+    console.log(tourData);
+    callGetData(url);
+  }, [tourData, url]); //이 부분을 빈 배열로 두어야 한다
+};
+```
+
+저 애물단지 같은 배열은 결론적으로 해결을 못했다.</br>
+
+그냥 강제로 경고를 무시하도록 코드를 추가했다. ㅋㅋ</br>
+
+찾아보니까 강제무시하는 방법을 알려주는 글도 많아서 그냥 썼다</br>
+
+```jsx
+//getData call
+  useEffect(() => {
+    callGetData(url);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+```
+props 객체구조 할당의 문제점은 그냥 정답을 보길 추천한다</br>
+
+별것도 아닌데 eslint는 이난리 저난리 치드라</br>
+
+```jsx
+const TourCard = api_data => {
+  const tourData = api_data;
+  const { firstimage, title, addr1 } = tourData.data;
+  return (
+    <div className="grid justify-center grid-cols-auto-fit gap-x-[34px] gap-y-[82px]">
+      <ul>
+        <ul class=" bg-slate-400 w-full  h-[304px] rounded-[10px]">
+          <img
+            class="w-[100%] h-[100%] object-cover rounded-[10px]"
+            src={firstimage}
+            alt={title + '이미지'}
+          />
+        </ul>
+        <li>{title}</li>
+        <li>{addr1}</li>
+      </ul>
+    </div>
+  );
+};
+
+export default TourCard;
+```
+
+아무튼 문제 해결 끝!</br>
+그리고 이번 목표는 상세페이지 만들기다</br>
+시간이 많지 않아서 걱정되지만 큰 공부가 되어 기쁘다</br>
 
 (10월 26일)<br/>
 9주차
