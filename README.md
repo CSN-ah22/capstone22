@@ -19,6 +19,17 @@
 + 작품의특징: 오픈웨더 api 와 관광지 api 를 접목하여 인사이트를 도출한다 <br/><br/>
 
 <h3>개발일지</h3>
+(11월 09일)<br/>
+11주차
+
+#### 이번주는 상세 페이지를 만들기로 하였다
+
++ api 서비스를 추가하였다! ➡ 상세정보 조회 서비스
++ 상세소개쉬는날, 개장기간 등 내역을 조회하는 기능
+
+```
+https://apis.data.go.kr/B551011/KorService/detailIntro?serviceKey=jE3ugMXmJI0yag2gClOOzYsaGhuRCsAy6yRix3i4CzyIKUAEbYeBEwTzAmr847RBStVkvt6rkKxqa8ziDhOqlQ%3D%3D&numOfRows=20&pageNo=1&MobileOS=ETC&MobileApp=NALJOMBWA&_type=json&contentId=129160&contentTypeId=12
+```
 
 (11월 02일)<br/>
 10주차
