@@ -31,6 +31,9 @@
 https://apis.data.go.kr/B551011/KorService/detailIntro?serviceKey=jE3ugMXmJI0yag2gClOOzYsaGhuRCsAy6yRix3i4CzyIKUAEbYeBEwTzAmr847RBStVkvt6rkKxqa8ziDhOqlQ%3D%3D&numOfRows=20&pageNo=1&MobileOS=ETC&MobileApp=NALJOMBWA&_type=json&contentId=129160&contentTypeId=12
 ```
 
++ 사용후 데이터를 받아오는것엔 문제가 없지만
++ 이전에 호출되는 searchkeword 서비스에서 firstimage가 비어있지 않은 데이터만 TourCard로 넘기도록 했더니 같은 방법으로는 상세정보를 넘길수 없는 문제가 생겼다.
+
 (11월 02일)<br/>
 10주차
 + 완성했다고 생각했던 api 호출 코드 에서 치명적인 문제점을 발견했다.
